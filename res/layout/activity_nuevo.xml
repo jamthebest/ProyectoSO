@@ -27,7 +27,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/textView1"
         android:layout_below="@+id/textView1"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:hint="@string/codigo"
         android:ems="10" >
 
@@ -67,51 +67,48 @@
         android:hint="@string/descripcion_tra"
         android:singleLine="false" />
 
-    <EditText
-        android:id="@+id/fecha"
+    <TextView
+        android:id="@+id/dateDisplay"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40sp"
+        android:gravity="center_vertical"
         android:layout_alignLeft="@+id/descripcion_tra"
-        android:layout_alignRight="@+id/descripcion_tra"
         android:layout_below="@+id/descripcion_tra"
+        android:layout_toLeftOf="@+id/pickDate"
         android:ems="10"
-        android:hint="@string/fecha"
-        android:inputType="date" />
+        android:hint="@string/fecha" />
+
+    <Button
+        android:id="@+id/aceptarNuevo"
+        android:layout_width="130sp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/prioridad"
+        android:layout_marginTop="5sp"
+        android:text="@string/aceptar" />
+
+    <Button
+        android:id="@+id/cancelarNuevo"
+        android:layout_width="130sp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/prioridad"
+        android:layout_alignTop="@+id/aceptarNuevo"
+        android:text="@string/cancelar" />
+
+    <Button
+        android:id="@+id/pickDate"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/descripcion_tra"
+        android:layout_alignTop="@+id/dateDisplay"
+        android:text="@string/sel_fecha" />
 
     <RatingBar
         android:id="@+id/prioridad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/fecha"
-        android:layout_toRightOf="@+id/textView2"
+        android:layout_alignRight="@+id/pickDate"
+        android:layout_below="@+id/pickDate"
         android:numStars="5" />
-    
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/prioridad"
-        android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/prioridad"
-        android:gravity="center"
-        android:text="@string/prioridad" />
-
-    <Button
-        android:id="@+id/cancelar"
-        android:layout_width="130sp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/aceptar"
-        android:layout_alignBottom="@+id/aceptar"
-        android:layout_alignRight="@+id/fecha"
-        android:text="@string/cancelar" />
-
-    <Button
-        android:id="@+id/aceptar"
-        android:layout_width="130sp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/prioridad"
-        android:layout_marginTop="10sp"
-        android:text="@string/aceptar" />
 
 </RelativeLayout>

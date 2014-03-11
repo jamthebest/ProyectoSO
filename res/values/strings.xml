@@ -21,6 +21,7 @@
     <string name="profesor">Profesor</string>
     <string name="descripcion_tra">Descripción</string>
     <string name="fecha">Fecha de Entrega</string>
+    <string name="sel_fecha">Seleccionar Fecha</string>
     <string name="aceptar">Aceptar</string>
     <string name="cancelar">Cancelar</string>
     <string name="prioridad">Prioridad</string>
