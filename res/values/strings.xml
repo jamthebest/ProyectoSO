@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">HOMEWORK MANAGER</string>
+    <string name="action_settings">Settings</string>
+    <string name="charging">Cargando</string>
+    <string name="inicio">Homework Manager</string>
+    <string name="mis_trabajos">Mis Trabajos</string>
+    <string name="mis_tareas">Mis Tareas</string>
+    <string name="reporte">Reporte de Trabajos</string>
+    <string name="acerca_de">Acerca de</string>
+    <string name="salir">Salir</string>
+    <string name="nuevo">Nuevo</string>
+    <string name="buscar">Buscar</string>
+    <string name="resumen">Resumen Trabajos</string>
+    <string name="atras">Atrás</string>
+    <string name="descripcion">Icono Trabajos</string>
+    <string name="nuevo_tra">Nuevo Trabajo</string>
+    <string name="codigo">Código de Clase</string>
+    <string name="clase">Nombre de Clase</string>
+    <string name="profesor">Profesor</string>
+    <string name="descripcion_tra">Descripción</string>
+    <string name="fecha">Fecha de Entrega</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="prioridad">Prioridad</string>
+
+</resources>

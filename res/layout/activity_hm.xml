@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".HMActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/trabajos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tareas"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="46dp"
+        android:gravity="center"
+        android:text="@string/mis_trabajos"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/tareas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/trabajos"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="@string/mis_tareas"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/reporte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tareas"
+        android:layout_below="@+id/tareas"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="@string/reporte"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/acerca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/reporte"
+        android:layout_below="@+id/reporte"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="@string/acerca_de"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/salir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/acerca"
+        android:layout_below="@+id/acerca"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="@string/salir"
+        android:textSize="25sp" />
+
+</RelativeLayout>
