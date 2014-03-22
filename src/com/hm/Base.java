@@ -20,10 +20,13 @@ public class Base extends SQLiteOpenHelper {
 	
 	String sqlCreate = "CREATE TABLE trabajo(id INTEGER PRIMARY KEY AUTOINCREMENT" +
 			", clase TEXT not null, codigoclase TEXT, profesor TEXT, descripcion TEXT not null, " +
-			"fecha TEXT not null, prioridad INTEGER)";
+			"fecha TEXT not null, prioridad TEXT)";
 	String sqlCreate2 = "CREATE TABLE if not exists tarea(id INTEGER PRIMARY KEY AUTOINCREMENT" +
-			", trabajoid INTEGER not null, descripcion TEXT, fecha TEXT not null, " +
-			"lista TEXT)";
+			", trabajoid INTEGER not null, descripcion TEXT, fecha TEXT not null)";
+	String sqlCreate3 = "CREATE TABLE if not exists alumno(id INTEGER PRIMARY KEY AUTOINCREMENT" +
+			", nombre TEXT not null, email TEXT)";
+	String sqlCreate4 = "CREATE TABLE if not exists trabajoalumno(id INTEGER PRIMARY KEY AUTOINCREMENT" +
+			", trabajoid INTEGER not null, alumnoid INTEGER not null)";
 	
 	public Base(Context context, String name, CursorFactory factory, int version) {
 		super(context, name, factory, version);
@@ -39,6 +42,8 @@ public class Base extends SQLiteOpenHelper {
 		}
 		db.execSQL(sqlCreate);
 		db.execSQL(sqlCreate2);
+		db.execSQL(sqlCreate3);
+		db.execSQL(sqlCreate4);
 	}
 
 	@Override

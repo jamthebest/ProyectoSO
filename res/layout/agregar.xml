@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+   
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/nuevo_tra"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/codigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="8dp"
+        android:hint="@string/codigo"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/clase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/codigo"
+        android:layout_alignRight="@+id/codigo"
+        android:layout_below="@+id/codigo"
+        android:hint="@string/clase"
+        android:layout_marginTop="8dp"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/profesor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/clase"
+        android:layout_alignRight="@+id/clase"
+        android:layout_below="@+id/clase"
+        android:ems="10"
+        android:layout_marginTop="8dp"
+        android:hint="@string/profesor"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/descripcion_tra"
+        android:layout_width="wrap_content"
+        android:layout_height="100sp"
+        android:layout_alignLeft="@+id/profesor"
+        android:layout_alignRight="@+id/profesor"
+        android:layout_below="@+id/profesor"
+        android:ems="10"
+        android:layout_marginTop="8dp"
+        android:inputType="textMultiLine"
+        android:hint="@string/descripcion_tra"
+        android:singleLine="false" />
+
+    <TextView
+        android:id="@+id/dateDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="40sp"
+        android:gravity="center_vertical"
+        android:layout_alignLeft="@+id/descripcion_tra"
+        android:layout_below="@+id/descripcion_tra"
+        android:layout_toLeftOf="@+id/pickDate"
+        android:ems="10"
+        android:layout_marginTop="8dp"
+        android:hint="@string/fecha" />
+
+    <Button
+        android:id="@+id/aceptarNuevo"
+        android:layout_width="130sp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/prioridad"
+        android:layout_marginTop="8dp"
+        android:text="@string/aceptar" />
+
+    <RatingBar
+        android:id="@+id/prioridad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pickDate"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:numStars="5" />
+
+    <Button
+        android:id="@+id/cancelarNuevo"
+        android:layout_width="130sp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/aceptarNuevo"
+        android:layout_alignBottom="@+id/aceptarNuevo"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="8dp"
+        android:text="@string/cancelar" />
+
+    <Button
+        android:id="@+id/pickDate"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/dateDisplay"
+        android:layout_toRightOf="@+id/aceptarNuevo"
+        android:text="@string/sel_fecha" />
+
+</RelativeLayout>

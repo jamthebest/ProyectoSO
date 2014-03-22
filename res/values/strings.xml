@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">HOMEWORK MANAGER</string>
+    <string name="app_name">Homework Manager</string>
     <string name="action_settings">Settings</string>
     <string name="charging">Cargando</string>
     <string name="inicio">Homework Manager</string>
@@ -25,5 +25,7 @@
     <string name="aceptar">Aceptar</string>
     <string name="cancelar">Cancelar</string>
     <string name="prioridad">Prioridad</string>
+    <string name="hint">Buscar</string>
+    <string name="buscar_por">Buscar Por</string>
 
 </resources>

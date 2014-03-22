@@ -41,10 +41,16 @@ public class TrabajosActivity extends Activity implements OnClickListener {
 			Intent i = new Intent(this,NuevoActivity.class);
 			startActivity(i);
 			finish();
-		}else{		//boton atras
-			Intent i = new Intent(this,HMActivity.class);
-			startActivity(i);
-			finish();;
+		}else{
+			if(vista.getId() == findViewById(R.id.buscar).getId()){
+				Intent i = new Intent(this,BuscarActivity.class);
+				startActivity(i);
+				finish();
+			} else{		//boton atras
+				Intent i = new Intent(this,HMActivity.class);
+				startActivity(i);
+				finish();;
+			}
 		}
 	}
 	
