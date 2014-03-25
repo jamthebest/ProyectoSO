@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
-public class TrabajosActivity extends Activity implements OnClickListener {
+public class TareaNuevaActivity extends Activity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +57,7 @@ public class TrabajosActivity extends Activity implements OnClickListener {
 	}
 	
 	public void salir(){
-		AlertDialog.Builder alertDialog = new AlertDialog.Builder(TrabajosActivity.this);
+		AlertDialog.Builder alertDialog = new AlertDialog.Builder(TareaNuevaActivity.this);
       	alertDialog.setMessage("¿Desea Salir de la Aplicación?");
       	alertDialog.setTitle("Salir");
       	alertDialog.setIcon(android.R.drawable.ic_dialog_alert);

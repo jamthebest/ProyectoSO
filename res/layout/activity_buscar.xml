@@ -6,67 +6,110 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".BuscarActivity" >
-    
-    <Spinner
-        android:id="@+id/CmbOpciones"
-        android:layout_width="match_parent"
+    tools:context=".NuevoActivity" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/modNum" />
-    
-    <Button
-        android:id="@+id/buscar_buscar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/buscar_atras"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:text="@string/buscar"
-        android:textSize="20sp" />
-    
-    <Button
-        android:id="@+id/buscar_atras"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:text="@string/atras"
-        android:textSize="20sp" />
-
-   	
-	<ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/buscar_buscar"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/CmbOpciones"
-        android:paddingTop="10dp" >
-
-        <EditText
-            android:id="@+id/buscar_campo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:ems="10"
-            android:hint="@string/hint"
-            android:inputType="number"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp" />
-
-    </ScrollView>
-    
-	<TextView
-        android:id="@+id/modNum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/CmbOpciones"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="18dp"
+        android:text="@string/modificar_tra"
+        android:textSize="25sp"
         android:gravity="center"
-        android:text="@string/buscar_por"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="25sp" />
-	
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/mod_codigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="5dp"
+        android:hint="@string/codigo"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/mod_clase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/mod_codigo"
+        android:layout_alignRight="@+id/mod_codigo"
+        android:layout_below="@+id/mod_codigo"
+        android:hint="@string/clase"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/mod_profesor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/mod_clase"
+        android:layout_alignRight="@+id/mod_clase"
+        android:layout_below="@+id/mod_clase"
+        android:ems="10"
+        android:hint="@string/profesor"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/mod_descripcion_tra"
+        android:layout_width="wrap_content"
+        android:layout_height="100sp"
+        android:layout_alignLeft="@+id/mod_profesor"
+        android:layout_alignRight="@+id/mod_profesor"
+        android:layout_below="@+id/mod_profesor"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:hint="@string/descripcion_tra"
+        android:singleLine="false" />
+
+    <TextView
+        android:id="@+id/mod_dateDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="40sp"
+        android:gravity="center_vertical"
+        android:layout_alignLeft="@+id/mod_descripcion_tra"
+        android:layout_below="@+id/mod_descripcion_tra"
+        android:layout_toLeftOf="@+id/mod_pickDate"
+        android:ems="10"
+        android:hint="@string/fecha" />
+
+    <Button
+        android:id="@+id/aceptarMod"
+        android:layout_width="130sp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/mod_prioridad"
+        android:layout_marginTop="5sp"
+        android:text="@string/aceptar" />
+
+    <Button
+        android:id="@+id/mod_pickDate"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/mod_descripcion_tra"
+        android:layout_alignTop="@+id/mod_dateDisplay"
+        android:text="@string/sel_fecha" />
+
+    <RatingBar
+        android:id="@+id/mod_prioridad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mod_pickDate"
+        android:layout_centerHorizontal="true"
+        android:numStars="5" />
+
+    <Button
+        android:id="@+id/cancelarMod"
+        android:layout_width="130sp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/aceptarMod"
+        android:layout_alignBottom="@+id/aceptarMod"
+        android:layout_alignParentRight="true"
+        android:text="@string/cancelar" />
+
 </RelativeLayout>

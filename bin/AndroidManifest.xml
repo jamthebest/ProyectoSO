@@ -38,6 +38,10 @@
             android:name="com.hm.BuscarActivity"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name="com.hm.TareaNuevaActivity"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>

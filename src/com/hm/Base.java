@@ -20,9 +20,9 @@ public class Base extends SQLiteOpenHelper {
 	
 	String sqlCreate = "CREATE TABLE trabajo(id INTEGER PRIMARY KEY AUTOINCREMENT" +
 			", clase TEXT not null, codigoclase TEXT, profesor TEXT, descripcion TEXT not null, " +
-			"fecha TEXT not null, prioridad TEXT)";
+			"fecha TEXT not null, prioridad TEXT, terminado INTEGER)";
 	String sqlCreate2 = "CREATE TABLE if not exists tarea(id INTEGER PRIMARY KEY AUTOINCREMENT" +
-			", trabajoid INTEGER not null, descripcion TEXT, fecha TEXT not null)";
+			", trabajoid INTEGER not null, descripcion TEXT, fecha TEXT not null, terminado INTEGER)";
 	String sqlCreate3 = "CREATE TABLE if not exists alumno(id INTEGER PRIMARY KEY AUTOINCREMENT" +
 			", nombre TEXT not null, email TEXT)";
 	String sqlCreate4 = "CREATE TABLE if not exists trabajoalumno(id INTEGER PRIMARY KEY AUTOINCREMENT" +

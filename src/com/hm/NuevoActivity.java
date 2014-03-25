@@ -113,7 +113,7 @@ public class NuevoActivity extends Activity implements OnClickListener {
 				//si la inserción es correcta devolverá true     
 				boolean resultado = insertarFila(clase.getText().toString(), codigo.getText().toString(),
 						profesor.getText().toString(), descripcion.getText().toString(),
-						mDateDisplay.getText().toString(), prioridad.toString());
+						mDateDisplay.getText().toString(), prioridad.getRating());
 				if(resultado){
 					Toast.makeText(getApplicationContext(),"Trabajo añadido correctamente"
 	        			, Toast.LENGTH_LONG).show();
@@ -144,7 +144,7 @@ public class NuevoActivity extends Activity implements OnClickListener {
 	
 	
 	private boolean insertarFila(String clase, String codigo, String profesor, 
-			String descripcion, String fecha, String prioridad){   
+			String descripcion, String fecha, Float prioridad){   
 	    ContentValues values = new ContentValues(); 
 	    values.putNull("id");
 	    values.put("clase",clase );
@@ -153,6 +153,7 @@ public class NuevoActivity extends Activity implements OnClickListener {
 	    values.put("descripcion",descripcion );
 	    values.put("fecha",fecha );
 	    values.put("prioridad",prioridad );
+	    values.put("terminado", 0);
 	    return (baseDatos.insert(tablaTrabajo, null, values) > 0);
 	  }
 	

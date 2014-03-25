@@ -21,7 +21,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/codigo"
+        android:id="@+id/codigo_tarea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -35,98 +35,91 @@
     </EditText>
 
     <EditText
-        android:id="@+id/clase"
+        android:id="@+id/clase_tarea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/codigo"
-        android:layout_alignRight="@+id/codigo"
-        android:layout_below="@+id/codigo"
+        android:layout_alignLeft="@+id/codigo_tarea"
+        android:layout_alignRight="@+id/codigo_tarea"
+        android:layout_below="@+id/codigo_tarea"
         android:hint="@string/clase"
         android:ems="10" />
 
     <EditText
-        android:id="@+id/profesor"
+        android:id="@+id/profesor_tarea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/clase"
-        android:layout_alignRight="@+id/clase"
-        android:layout_below="@+id/clase"
+        android:layout_alignLeft="@+id/clase_tarea"
+        android:layout_alignRight="@+id/clase_tarea"
+        android:layout_below="@+id/clase_tarea"
         android:ems="10"
         android:hint="@string/profesor"
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/descripcion_tra"
+        android:id="@+id/descripcion_tra_tarea"
         android:layout_width="wrap_content"
         android:layout_height="80sp"
-        android:layout_alignLeft="@+id/profesor"
-        android:layout_alignRight="@+id/profesor"
-        android:layout_below="@+id/profesor"
+        android:layout_alignLeft="@+id/profesor_tarea"
+        android:layout_alignRight="@+id/profesor_tarea"
+        android:layout_below="@+id/profesor_tarea"
         android:ems="10"
-        android:inputType="textMultiLine"
         android:hint="@string/descripcion_tra"
+        android:inputType="textMultiLine"
         android:singleLine="false" />
 
     <TextView
-        android:id="@+id/dateDisplay"
+        android:id="@+id/dateDisplay_tarea"
         android:layout_width="wrap_content"
         android:layout_height="40sp"
         android:gravity="center_vertical"
-        android:layout_alignLeft="@+id/descripcion_tra"
-        android:layout_below="@+id/descripcion_tra"
-        android:layout_toLeftOf="@+id/pickDate"
+        android:layout_alignLeft="@+id/descripcion_tra_tarea"
+        android:layout_below="@+id/descripcion_tra_tarea"
+        android:layout_toLeftOf="@+id/pickDate_tarea"
         android:ems="10"
         android:hint="@string/fecha" />
 
     <Button
-        android:id="@+id/pickDate"
+        android:id="@+id/pickDate_tarea"
         android:layout_width="150sp"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/descripcion_tra"
-        android:layout_alignTop="@+id/dateDisplay"
+        android:layout_alignRight="@+id/descripcion_tra_tarea"
+        android:layout_alignTop="@+id/dateDisplay_tarea"
         android:text="@string/sel_fecha" />
 
-    <Button
-        android:id="@+id/cancelarNuevo"
-        android:layout_width="130sp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/aceptarNuevo"
-        android:layout_alignBottom="@+id/aceptarNuevo"
-        android:layout_alignRight="@+id/pickDate"
-        android:text="@string/cancelar" />
-
     <RatingBar
-        android:id="@+id/prioridad"
+        android:id="@+id/prioridad_tarea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/pickDate"
+        android:layout_below="@+id/pickDate_tarea"
         android:layout_centerHorizontal="true"
         android:numStars="5" />
 
     <Button
-        android:id="@+id/aceptarNuevo"
+        android:id="@+id/cancelarNuevo_tarea"
         android:layout_width="130sp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/dateDisplay"
+        android:layout_alignBaseline="@+id/aceptarNuevo_tarea"
+        android:layout_alignBottom="@+id/aceptarNuevo_tarea"
+        android:layout_alignRight="@+id/pickDate_tarea"
+        android:text="@string/cancelar" />
+
+    <Button
+        android:id="@+id/aceptarNuevo_tarea"
+        android:layout_width="130sp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/dateDisplay_tarea"
         android:layout_alignParentBottom="true"
         android:text="@string/aceptar" />
 
-    <CheckBox
-        android:id="@+id/checkBox1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/aceptarNuevo"
-        android:layout_below="@+id/prioridad"
-        android:text="@string/grupal" />
-
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/email_tarea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/checkBox1"
-        android:layout_toRightOf="@+id/checkBox1"
+        android:layout_alignLeft="@+id/aceptarNuevo_tarea"
+        android:layout_alignRight="@+id/cancelarNuevo_tarea"
+        android:layout_below="@+id/prioridad_tarea"
         android:ems="10"
-        android:hint="@string/alumnos"
-        android:inputType="number" />
+        android:hint="@string/email"
+        android:inputType="textEmailAddress" />
 
 </RelativeLayout>

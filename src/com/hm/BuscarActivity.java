@@ -1,87 +1,97 @@
 package com.hm;
 
-import com.hm.R;
+import java.util.Calendar;
 
+import com.hm.R;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.text.InputType;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class BuscarActivity extends Activity implements OnClickListener {
+
+	EditText clase, codigo, profesor, descripcion;
+	RatingBar prioridad;
+	
+	//variables para interfaz de fecha
+	private TextView mDateDisplay;    
+    private Button mPickDate;    
+    private int mYear;    
+    private int mMonth;    
+    private int mDay;    
+    static final int DATE_DIALOG_ID = 0;
+    
+    // the callback received when the user "sets" the date in the dialog    
+    private DatePickerDialog.OnDateSetListener mDateSetListener =            
+    	new DatePickerDialog.OnDateSetListener() {                
+    	public void onDateSet(DatePicker view, int year,                                       
+    			int monthOfYear, int dayOfMonth) {                    
+    		mYear = year;                    
+    		mMonth = monthOfYear;                    
+    		mDay = dayOfMonth;                    
+    		updateDisplay();                
+    		}            
+    	};
 	
 	
-	private EditText con;
-	private SQLiteDatabase base;
+	public static SQLiteDatabase baseDatos;   
 	private static final String TAG = "bdhomeworks";   
 	private static final String nombreBD = "homeworks";   
-	private final String[] datos =
-	        new String[]{"Código Clase","Nombre Clase","Profesor"};
-	private Spinner cmbOpciones;
-	  
-
+	private static final String tablaTrabajo = "trabajo";
+	Bundle bundle = getIntent().getExtras();
+	//private static final String id = "SELECT id FROM trabajo ORDER BY id DESC LIMIT 1;";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_buscar);
-		con = (EditText) findViewById(R.id.buscar_campo);
-		View boton1 = findViewById(R.id.buscar_buscar);
-		View boton2 = findViewById(R.id.buscar_atras);
-		boton1.setOnClickListener(this);
-		boton2.setOnClickListener(this);
 		
-		ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this,
-		            android.R.layout.select_dialog_singlechoice, datos);
-		cmbOpciones = (Spinner)findViewById(R.id.CmbOpciones);
-		/*
-		cmbOpciones.setOnItemSelectedListener(new OnItemSelectedListener() {
-			public void onItemSelected(AdapterView<?> parent, View view, int position,long id) {
-				if(position == 1)
-					con.setInputType(InputType.TYPE_CLASS_NUMBER);
-				else
-					con.setInputType(InputType.TYPE_CLASS_TEXT);
-			}
+		clase   = (EditText) findViewById(R.id.mod_clase);   
+	    codigo = (EditText) findViewById(R.id.mod_codigo);
+	    profesor = (EditText) findViewById(R.id.mod_profesor);
+	    descripcion = (EditText) findViewById(R.id.mod_descripcion_tra);
+	    prioridad = (RatingBar) findViewById(R.id.mod_prioridad);
 
-			public void onNothingSelected(AdapterView<?> parent) {
-
-			}
-
-		});
-		*/
-		cmbOpciones.setOnItemSelectedListener(new OnItemSelectedListener() {
-			public void onItemSelected(AdapterView<?> parent, View view, int position,long id) {
-				if(position == 0){
-					con.setInputType(InputType.TYPE_CLASS_TEXT);
-					con.setHint("Código de la Clase");
-				}
-				else{
-					con.setInputType(InputType.TYPE_CLASS_TEXT);
-					if(position == 1)
-						con.setHint("Nombre de la Clase");
-					else
-						con.setHint("Nombre del Profesor");
-				}
-			}
-
-			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-		});
-		cmbOpciones.setAdapter(adaptador);
+	    mDateDisplay = (TextView) findViewById(R.id.mod_dateDisplay);        
+    	mPickDate = (Button) findViewById(R.id.mod_pickDate);        
+    	// add a click listener to the button        
+    	mPickDate.setOnClickListener(this);
+    	// get the current date        
+    	final Calendar c = Calendar.getInstance();        
+    	mYear = c.get(Calendar.YEAR);        
+    	mMonth = c.get(Calendar.MONTH);        
+    	mDay = c.get(Calendar.DAY_OF_MONTH);        
+    	// display the current date (this method is below)        
+    	updateDisplay();
+    	
+    	clase.setText(bundle.getString("clase"));
+		codigo.setText(bundle.getString("codigo"));
+		profesor.setText(bundle.getString("profesor"));
+		descripcion.setText(bundle.getString("descripcion"));
+		prioridad.setRating(Float.parseFloat(bundle.getString("prioridad")));
+		mDateDisplay.setText(bundle.getString("date"));
+        
+		View boton = findViewById(R.id.aceptarMod);
+        boton.setOnClickListener(this);
+        View boton2 = findViewById(R.id.cancelarMod);
+        boton2.setOnClickListener(this);
+        
 	}
 
 	@Override
@@ -91,85 +101,115 @@ public class BuscarActivity extends Activity implements OnClickListener {
 		return true;
 	}
 
-	public void onClick(View view) {
-		// TODO Auto-generated method stub
-		if(view.getId() == findViewById(R.id.buscar_buscar).getId()){
-			abrirBasedatos();
-    		Cursor cursor = null;
-    		String codigo="";
-    		String nombre="";
-    		String profesor="";
-    		boolean pasar = true;
-    		
-    		String list = (cmbOpciones.getItemAtPosition
-    				(cmbOpciones.getSelectedItemPosition()).toString());
-    		
-    		//if(this.getTitle().length()==8){
-    		if(list == "Codigo Clase" && con.getText().length()>0){
-    			codigo = con.getText().toString();
-        		cursor = base.rawQuery("SELECT * " + 
-        				"FROM trabajo WHERE codigoclase = '"+codigo+"'", null);
-			}else if(list == "Nombre Clase" && con.getText().length()>0){
-				nombre = con.getText().toString();
-				cursor = base.rawQuery("SELECT * " + 
-        				"FROM trabajo WHERE clase LIKE '%"+nombre+"%'", null);
-			}else if(list == "Profesor" && con.getText().length()>0){
-				profesor = con.getText().toString();
-				cursor = base.rawQuery("SELECT * " + 
-        				"FROM trabajo WHERE profesor LIKE '%"+profesor+"%'", null);
+	@Override
+	public void onClick(View vista) {
+		if(vista.getId()==findViewById(R.id.aceptarMod).getId()){
+			if(clase.getText().toString().length() == 0 || 
+					codigo.getText().toString().length() == 0 ||
+					profesor.getText().toString().length() == 0 ||
+					descripcion.getText().toString().length() == 0 ||
+					mDateDisplay.getText().toString().length() == 0 ||
+					prioridad.toString().length() == 0){
+				Toast.makeText(getApplicationContext(), 
+		        		  "Ingrese Todos los Datos", Toast.LENGTH_LONG).show();
 			}else{
-				pasar = false;
-				Toast.makeText(getApplicationContext(),"Ingrese el "+
-			    list + " del Trabajo a Buscar", Toast.LENGTH_LONG).show();
-			}
-    		
-    		
-    		if(pasar){
-    			if(cursor.getCount() == 0){
-    				Toast.makeText(getApplicationContext(), "No se Encontraron Trabajos con esos Parámetros", Toast.LENGTH_LONG).show();
-    				cursor.close();
-    			}else{
-    				while(cursor.moveToNext()){
-    					codigo = cursor.getString(0);
-    					nombre = cursor.getString(1);
-    					profesor = cursor.getString(2);
-    				}
-    				cursor.close();
-    				Intent i = new Intent(this,BuscarActivity.class); //Ir a pantalla Buscar
-					i.putExtra("nombre", nombre);
-					i.putExtra("conte", profesor);
-					i.putExtra("num", codigo);
+			
+				//Abrir la base de datos, se creará si no existe             		
+				abrirBasedatos();
+
+				//Insertar una fila o registro en la tabla "trabajo"
+				//si la inserción es correcta devolverá true     
+				insertarFila(clase.getText().toString(), codigo.getText().toString(),
+						profesor.getText().toString(), descripcion.getText().toString(),
+						mDateDisplay.getText().toString(), prioridad.getRating());
+					Toast.makeText(getApplicationContext(),"Trabajo Modificado correctamente"
+	        			, Toast.LENGTH_LONG).show();
+					Intent i = new Intent(this,TrabajosActivity.class);
 					startActivity(i);
 					finish();
-    			}
-    			
-    		}
-    		
+			}
 		}else{
-			Intent j = new Intent(this, TrabajosActivity.class);
-			startActivity(j);
-			finish();
+			if(vista.getId()==findViewById(R.id.mod_pickDate).getId()){
+				showDialog(DATE_DIALOG_ID);
+			}else{
+				cancelar();
+			}
 		}
 	}
 	
-	private void abrirBasedatos(){   
+	private void abrirBasedatos(){ 
 	    try{   
-	      base = openOrCreateDatabase(nombreBD, MODE_WORLD_WRITEABLE, null);
+	      baseDatos = openOrCreateDatabase(nombreBD, MODE_WORLD_WRITEABLE, null);
 	    }    
 	    catch (Exception e){   
-	      Log.i(TAG, "Error al abrir o crear la base de datos " + e);   
+	      Log.i(TAG, "Error al abrir la base de datos:\n " + e);   
 	    }   
+	  }
+	
+	
+	private void insertarFila(String clase, String codigo, String profesor, 
+			String descripcion, String fecha, Float prioridad){   
+	    ContentValues values = new ContentValues();
+	    values.put("clase",clase );
+	    values.put("codigoclase",codigo );
+	    values.put("profesor", profesor);
+	    values.put("descripcion",descripcion );
+	    values.put("fecha",fecha );
+	    values.put("prioridad",prioridad );
+	    values.put("terminado", 0);
+	    baseDatos.update(tablaTrabajo, values, "id = '" + bundle.getString("id")+ "'", null); 
 	  }
 	
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 	    if (keyCode == KeyEvent.KEYCODE_BACK) {
 	        //moveTaskToBack(true);          
-	    	Intent j = new Intent(this, HMActivity.class);
-			startActivity(j);
-			finish();
+	    	cancelar();
 	        return true;
 	    }
 	    return super.onKeyDown(keyCode, event);
 	}
+	
+	private void cancelar(){
+		AlertDialog.Builder alertDialog = new AlertDialog.Builder(BuscarActivity.this);
+      	alertDialog.setMessage("¿Seguro que desea cancelar?, Perderá todos los cambios!");
+      	alertDialog.setTitle("Cancelar");
+      	alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
+      	alertDialog.setCancelable(false);
+      	alertDialog.setPositiveButton("Sí", new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int which){
+              Intent i = new Intent(BuscarActivity.this, TrabajosActivity.class);
+              startActivity(i);
+              finish();
+            }
+        }); 
+      	alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int which){
+              
+            }
+        });
+        alertDialog.show();
+	}
+	
+	private void updateDisplay() {        
+    	mDateDisplay.setText(
+    			new StringBuilder()
+    			// Month is 0 based so add 1
+    			.append(mDay).append("/")
+    			.append(mMonth + 1).append("/")                    
+    			.append(mYear).append(" "));
+    }
+    
+    
+    @Override
+    protected Dialog onCreateDialog(int id) {    
+    	switch (id) {   
+    		case DATE_DIALOG_ID:        
+    			return new DatePickerDialog(this,                    
+    					mDateSetListener,                    
+    					mYear, mMonth, mDay);    
+    	}    
+    	return null;
+    	}
+
 }

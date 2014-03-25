@@ -16,6 +16,7 @@
     <string name="atras">Atrás</string>
     <string name="descripcion">Icono Trabajos</string>
     <string name="nuevo_tra">Nuevo Trabajo</string>
+    <string name="modificar_tra">Modificar Trabajo</string>
     <string name="codigo">Código de Clase</string>
     <string name="clase">Nombre de Clase</string>
     <string name="profesor">Profesor</string>
@@ -27,5 +28,8 @@
     <string name="prioridad">Prioridad</string>
     <string name="hint">Buscar</string>
     <string name="buscar_por">Buscar Por</string>
+    <string name="email">Email Alumno</string>
+    <string name="alumnos">Numero de Alumnos</string>
+    <string name="grupal">Grupal</string>
 
 </resources>
