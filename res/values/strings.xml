@@ -31,5 +31,12 @@
     <string name="email">Email Alumno</string>
     <string name="alumnos">Numero de Alumnos</string>
     <string name="grupal">Grupal</string>
+    <string name="etiqSensorDeMovimiento">Sensor</string>
+    <string name="hello">Hola</string>
+    <string name="etiqSensorDeOrientacion">Orientacion</string>
+    <string name="javier">Javier Midence</string>
+    <string name="javier_cuenta">11011410</string>
+    <string name="ricardo">Ricardo Ortega</string>
+    <string name="ricardo_cuenta">109</string>
 
 </resources>

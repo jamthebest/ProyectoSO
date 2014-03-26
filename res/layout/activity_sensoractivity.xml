@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/etiqSensorDeMovimiento"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:gravity="center"
+        android:text="@string/etiqSensorDeMovimiento" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/etiqSensorDeOrientacion"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:gravity="center"
+        android:text="@string/etiqSensorDeOrientacion" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/txtAccZ"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:gravity="center"
+        android:text="@string/javier" />
+
+    <Button
+        android:id="@+id/atras_sensor"
+        android:layout_width="112dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="220sp"
+        android:text="@string/atras" />
+
+</LinearLayout>

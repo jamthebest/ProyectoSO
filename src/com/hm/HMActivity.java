@@ -48,6 +48,14 @@ public class HMActivity extends Activity implements OnClickListener {
 			Intent i = new Intent(this,TrabajosActivity.class);
 			startActivity(i);
 			finish();
+		}else if(vista.getId()==findViewById(R.id.reporte).getId()){
+			Intent i = new Intent(this, SensorActivity.class);
+			startActivity(i);
+			finish();
+		}else if(vista.getId() == findViewById(R.id.acerca).getId()){
+			Intent j = new Intent(this, AcercaDeActivity.class);
+			startActivity(j);
+    		finish();
 		}else{
 			salir();
 		}
