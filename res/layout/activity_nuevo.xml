@@ -112,21 +112,12 @@
         android:text="@string/aceptar" />
 
     <CheckBox
-        android:id="@+id/checkBox1"
+        android:id="@+id/checkgrupal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/aceptarNuevo"
-        android:layout_below="@+id/prioridad"
+        android:layout_above="@+id/cancelarNuevo"
+        android:layout_centerHorizontal="true"
+        
         android:text="@string/grupal" />
-
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/checkBox1"
-        android:layout_toRightOf="@+id/checkBox1"
-        android:ems="10"
-        android:hint="@string/alumnos"
-        android:inputType="number" />
 
 </RelativeLayout>

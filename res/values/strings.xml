@@ -37,6 +37,11 @@
     <string name="javier">Javier Midence</string>
     <string name="javier_cuenta">11011410</string>
     <string name="ricardo">Ricardo Ortega</string>
-    <string name="ricardo_cuenta">109</string>
+    <string name="ricardo_cuenta">10941162</string>
+    <string name="so">Sistemas Operativos 1</string>
+    <string name="terminar">Terminar</string>
+    <string name="otro">Otro</string>
+    <string name="alumno">Nombre Alumno</string>
+    <string name="tarea">Nueva Tarea</string>
 
 </resources>

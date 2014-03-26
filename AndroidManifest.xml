@@ -46,6 +46,14 @@
             android:name="com.hm.AcercaDeActivity"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name="com.hm.ResumenTrabajosActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.hm.ResumenTareasActivity"
+            android:label="@string/app_name" >
+        </activity>
         <activity android:name="com.hm.SensorActivity" android:label="@string/app_name"></activity>
     </application>
 

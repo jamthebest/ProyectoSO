@@ -46,6 +46,7 @@ public class HMActivity extends Activity implements OnClickListener {
 		
 		if(vista.getId()==findViewById(R.id.trabajos).getId()){
 			Intent i = new Intent(this,TrabajosActivity.class);
+			i.putExtra("x", 0);
 			startActivity(i);
 			finish();
 		}else if(vista.getId()==findViewById(R.id.reporte).getId()){
@@ -54,6 +55,10 @@ public class HMActivity extends Activity implements OnClickListener {
 			finish();
 		}else if(vista.getId() == findViewById(R.id.acerca).getId()){
 			Intent j = new Intent(this, AcercaDeActivity.class);
+			startActivity(j);
+    		finish();
+		}else if(vista.getId() == findViewById(R.id.tareas).getId()){
+			Intent j = new Intent(this, ResumenTareasActivity.class);
 			startActivity(j);
     		finish();
 		}else{

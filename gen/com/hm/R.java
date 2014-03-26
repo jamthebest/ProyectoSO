@@ -26,30 +26,33 @@ public final class R {
     public static final class id {
         public static final int aceptarMod=0x7f08000d;
         public static final int aceptarNuevo=0x7f08001e;
-        public static final int aceptarNuevo_tarea=0x7f08002e;
+        public static final int aceptarNuevo_tarea=0x7f08002f;
         public static final int aceptar_acerca=0x7f080005;
+        public static final int aceptar_resumen=0x7f080024;
+        public static final int aceptar_resumen_tareas=0x7f080022;
         public static final int acerca=0x7f080013;
         public static final int acerca_title=0x7f080000;
-        public static final int action_settings=0x7f080034;
+        public static final int action_settings=0x7f080035;
+        public static final int alumno_tarea=0x7f080029;
         public static final int atras=0x7f080033;
-        public static final int atras_sensor=0x7f080025;
+        public static final int atras_sensor=0x7f080028;
         public static final int cancelarMod=0x7f08000f;
         public static final int cancelarNuevo=0x7f08001d;
-        public static final int cancelarNuevo_tarea=0x7f08002d;
-        public static final int checkBox1=0x7f080020;
+        public static final int cancelarNuevo_tarea=0x7f08002e;
+        public static final int checkgrupal=0x7f080020;
         public static final int clase=0x7f080018;
-        public static final int clase_tarea=0x7f080027;
         public static final int codigo=0x7f080017;
-        public static final int codigo_tarea=0x7f080026;
         public static final int dateDisplay=0x7f08001b;
-        public static final int dateDisplay_tarea=0x7f08002a;
+        public static final int dateDisplay_tarea=0x7f08002c;
+        public static final int datos_resumen=0x7f080023;
+        public static final int datos_resumen_tareas=0x7f080021;
         public static final int descripcion_tra=0x7f08001a;
-        public static final int descripcion_tra_tarea=0x7f080029;
-        public static final int editText1=0x7f080021;
-        public static final int email_tarea=0x7f08002f;
-        public static final int etiqSensorDeMovimiento=0x7f080022;
-        public static final int etiqSensorDeOrientacion=0x7f080023;
+        public static final int descripcion_tra_tarea=0x7f08002a;
+        public static final int email_tarea=0x7f08002b;
+        public static final int etiqSensorDeMovimiento=0x7f080025;
+        public static final int etiqSensorDeOrientacion=0x7f080026;
         public static final int imageView1=0x7f080030;
+        public static final int item_text=0x7f080034;
         public static final int javier=0x7f080001;
         public static final int javier_cuenta=0x7f080002;
         public static final int mod_clase=0x7f080008;
@@ -62,11 +65,9 @@ public final class R {
         public static final int name=0x7f080016;
         public static final int nuevo=0x7f080031;
         public static final int pickDate=0x7f08001c;
-        public static final int pickDate_tarea=0x7f08002b;
+        public static final int pickDate_tarea=0x7f08002d;
         public static final int prioridad=0x7f08001f;
-        public static final int prioridad_tarea=0x7f08002c;
         public static final int profesor=0x7f080019;
-        public static final int profesor_tarea=0x7f080028;
         public static final int progressBar=0x7f080015;
         public static final int reporte=0x7f080012;
         public static final int resumen=0x7f080032;
@@ -76,7 +77,7 @@ public final class R {
         public static final int tareas=0x7f080011;
         public static final int textView1=0x7f080006;
         public static final int trabajos=0x7f080010;
-        public static final int txtAccZ=0x7f080024;
+        public static final int txtAccZ=0x7f080027;
     }
     public static final class layout {
         public static final int activity_acercade=0x7f030000;
@@ -84,10 +85,13 @@ public final class R {
         public static final int activity_hm=0x7f030002;
         public static final int activity_inicio=0x7f030003;
         public static final int activity_nuevo=0x7f030004;
-        public static final int activity_sensoractivity=0x7f030005;
-        public static final int activity_tareanueva=0x7f030006;
-        public static final int activity_trabajos=0x7f030007;
-        public static final int agregar=0x7f030008;
+        public static final int activity_resumentareas=0x7f030005;
+        public static final int activity_resumentrabajos=0x7f030006;
+        public static final int activity_sensoractivity=0x7f030007;
+        public static final int activity_tareanueva=0x7f030008;
+        public static final int activity_trabajos=0x7f030009;
+        public static final int agregar=0x7f03000a;
+        public static final int row_grid=0x7f03000b;
     }
     public static final class menu {
         public static final int buscar=0x7f070000;
@@ -101,6 +105,7 @@ public final class R {
         public static final int aceptar=0x7f050016;
         public static final int acerca_de=0x7f050007;
         public static final int action_settings=0x7f050001;
+        public static final int alumno=0x7f050028;
         public static final int alumnos=0x7f05001c;
         public static final int app_name=0x7f050000;
         public static final int atras=0x7f05000c;
@@ -127,6 +132,7 @@ public final class R {
         public static final int modificar_tra=0x7f05000f;
         public static final int nuevo=0x7f050009;
         public static final int nuevo_tra=0x7f05000e;
+        public static final int otro=0x7f050027;
         public static final int prioridad=0x7f050018;
         public static final int profesor=0x7f050012;
         public static final int reporte=0x7f050006;
@@ -135,6 +141,9 @@ public final class R {
         public static final int ricardo_cuenta=0x7f050024;
         public static final int salir=0x7f050008;
         public static final int sel_fecha=0x7f050015;
+        public static final int so=0x7f050025;
+        public static final int tarea=0x7f050029;
+        public static final int terminar=0x7f050026;
     }
     public static final class style {
         /** 

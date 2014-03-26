@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Toast;
 
 public class TrabajosActivity extends Activity implements OnClickListener {
 
@@ -21,6 +22,10 @@ public class TrabajosActivity extends Activity implements OnClickListener {
         boton3.setOnClickListener(this);
         View boton4 = findViewById(R.id.atras);
         boton4.setOnClickListener(this);
+        Bundle bundle = getIntent().getExtras();
+        if(bundle.containsKey("id"))
+        	Toast.makeText(getApplicationContext(), bundle.getString("id"), Toast.LENGTH_LONG).show();
+		
 	}
 
 	@Override
@@ -34,6 +39,10 @@ public class TrabajosActivity extends Activity implements OnClickListener {
 	public void onClick(View vista) {
 		if(vista.getId()==findViewById(R.id.nuevo).getId()){
 			Intent i = new Intent(this,NuevoActivity.class);
+			startActivity(i);
+			finish();
+		}else if(vista.getId()==findViewById(R.id.resumen).getId()){
+			Intent i = new Intent(this,ResumenTrabajosActivity.class);
 			startActivity(i);
 			finish();
 		}else{		//boton atras

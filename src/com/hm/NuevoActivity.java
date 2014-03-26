@@ -11,6 +11,7 @@ import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -18,6 +19,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RatingBar;
@@ -27,6 +29,7 @@ import android.widget.Toast;
 public class NuevoActivity extends Activity implements OnClickListener {
 
 	EditText clase, codigo, profesor, descripcion;
+	CheckBox grupal;
 	RatingBar prioridad;
 	
 	//variables para interfaz de fecha
@@ -66,6 +69,7 @@ public class NuevoActivity extends Activity implements OnClickListener {
 	    profesor = (EditText) findViewById(R.id.profesor);
 	    descripcion = (EditText) findViewById(R.id.descripcion_tra);
 	    prioridad = (RatingBar) findViewById(R.id.prioridad);
+	    grupal = (CheckBox) findViewById(R.id.checkgrupal);
 
 	    mDateDisplay = (TextView) findViewById(R.id.dateDisplay);        
     	mPickDate = (Button) findViewById(R.id.pickDate);        
@@ -116,10 +120,27 @@ public class NuevoActivity extends Activity implements OnClickListener {
 						mDateDisplay.getText().toString(), prioridad.getRating());
 				if(resultado){
 					Toast.makeText(getApplicationContext(),"Trabajo añadido correctamente"
-	        			, Toast.LENGTH_LONG).show();
-					Intent i = new Intent(this,TrabajosActivity.class);
-					startActivity(i);
-					finish();
+	        			, Toast.LENGTH_SHORT).show();
+					if(grupal.isChecked()){
+							Intent i = new Intent(this, TareaNuevaActivity.class);
+							i.putExtra("x", 0);
+			              Cursor x = baseDatos.rawQuery("SELECT id FROM trabajo", null);
+			              String id = "";
+			              if(x.getCount()>0){
+			            	  while(x.moveToNext()){
+			  					id = x.getString(0);
+			  				  }
+							i.putExtra("id", id);
+			              }
+			              x.close();
+			              startActivity(i);
+						  finish();
+					}else{
+						Intent i = new Intent(this,TrabajosActivity.class);
+						i.putExtra("x", 0);
+						startActivity(i);
+						finish();
+					}
 				}else{
 					Toast.makeText(getApplicationContext(), "No se ha podido guardar el Trabajo", Toast.LENGTH_LONG).show();
 				}
@@ -176,6 +197,7 @@ public class NuevoActivity extends Activity implements OnClickListener {
       	alertDialog.setPositiveButton("Sí", new DialogInterface.OnClickListener(){
             public void onClick(DialogInterface dialog, int which){
               Intent i = new Intent(NuevoActivity.this, TrabajosActivity.class);
+              i.putExtra("x", 0);
               startActivity(i);
               finish();
             }
